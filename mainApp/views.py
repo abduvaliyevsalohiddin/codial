@@ -52,3 +52,31 @@ class SavolHisoblaAPI(APIView):
             "foizda": natija
         }
         return Response(content)
+
+
+class OrtachaAPI(APIView):
+    def get(self, request):
+        content = {
+            "xabar": "Testlar bilan ishlash men uchun ozgina bolgani uchun iltimos qolda kiritishingizni soraymiz !",
+            "masalan": "{"
+                       "1: 15,"
+                       "2: 25,"
+                       "3: 56,"
+                       "4: 26,"
+                       "........"
+                       "}"
+        }
+        return Response(content)
+
+    def post(self, request):
+        d = request.data
+        s = 0
+        k = 0
+        for i, j in d.items():
+            s += j
+            k += 1
+        content = {
+            "xabar": s / k
+        }
+        return Response(content)
+

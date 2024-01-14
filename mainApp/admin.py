@@ -4,3 +4,4 @@ from .models import *
 
 admin.site.register(Soha)
 admin.site.register(Savollar)
+admin.site.register(UserProfile)

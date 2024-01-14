@@ -12,3 +12,9 @@ class SavollarSerializer(serializers.ModelSerializer):
     class Meta():
         model = Savollar
         fields = '__all__'
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ('id', 'username', 'password')

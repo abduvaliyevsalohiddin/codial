@@ -31,3 +31,24 @@ class RegisterUser(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class SavolHisoblaAPI(APIView):
+    def get(self, request):
+        content = {
+            "xabar": "Testlar bilan ishlash men uchun ozgina bolgani uchun iltimos qolda kiritishingizni soraymiz !",
+            "masalan": "{"
+                       "savollar: 20,"
+                       "togri: 13"
+        }
+        return Response(content)
+
+    def post(self, request):
+        xabar = request.data
+        savollar = int(xabar["savollar"])
+        togri = int(xabar["togri"])
+        natija = 100 / savollar * togri
+        content = {
+            "savollar": savollar,
+            "togrisi": togri,
+            "foizda": natija
+        }
+        return Response(content)
